@@ -78,6 +78,9 @@ COPY --chown=buildagent:buildagent run-agent.sh /run-agent.sh
 COPY --chown=buildagent:buildagent run-agent-services.sh /run-services.sh
 COPY --chown=buildagent:buildagent TeamCity/buildAgent /opt/buildagent
 
+ENV JDK_25_0=/opt/buildagent/jre \
+    JDK_25_0_x64=/opt/buildagent/jre
+
 RUN chmod +x /opt/buildagent/bin/*.sh && \
     chmod +x /run-agent.sh /run-services.sh && sync && \
     mkdir -p /data/teamcity_agent/conf && \
